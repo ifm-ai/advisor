@@ -1,0 +1,68 @@
+site_name: Advisor
+site_description: A privileged advisor for agentic coding rollouts.
+repo_url: https://github.com/ifm-ai/advisor
+repo_name: ifm-ai/advisor
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Tutorial:
+      - Getting started: tutorial/getting-started.md
+  - How-to:
+      - Add the advisor to your agent loop: how-to/custom-agent-loop.md
+      - Use it with LiteLLM and Harbor: how-to/litellm-and-harbor.md
+      - Enable reasoning prefill: how-to/reasoning-prefill.md
+      - Use your own task material: how-to/task-material.md
+      - Audit trajectories: how-to/audit.md
+      - Summarize runs and report results: how-to/summarize-and-report.md
+  - Explanation:
+      - The method: explanation/method.md
+      - Privileged-information isolation: explanation/isolation.md
+      - Writing cues: explanation/writing-cues.md
+      - Design decisions: explanation/design-decisions.md
+  - Reference:
+      - Configuration: reference/configuration.md
+      - Decision schema: reference/decision-schema.md
+      - Artifacts: reference/artifacts.md
+      - Command line: reference/cli.md
+      - Prompts and versioning: reference/prompts.md
+  - Development: development.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: math
+          class: arithmatex
+          format: !!python/object/apply:pymdownx.arithmatex.arithmatex_fenced_format {kwds: {mode: generic, tag: pre}}
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

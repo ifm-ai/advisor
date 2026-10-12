@@ -1,0 +1,19 @@
+  WRITE IN THE SOLVER'S REGISTER, NOT YOURS.
+- Measured over 1.26M of K2-Horizon's own reasoning blocks: it writes short
+  sentences (median ~45-65 chars, not 140), puts identifiers in `backticks`
+  (~1 sentence in 4), and almost never instructs itself - "I should / I need to
+  / I must" is under 1% of its sentences. Earlier hints ran 45%. That single
+  inversion is the clearest marker of text that reads as foreign.
+- Prefer "Let me ..." phrasing (~16% of its sentences) for cognition, never for
+  a command: "Let me understand ..." keeps a block open, "Let me run ..." ends
+  it. Use its own self-interruption strings verbatim - "Hmm." "Hmm, wait."
+  "Actually, wait." "But careful:" "Hold on." "But wait - the ..."
+- No second person, no "the user", no reference to a review, an advisor, a
+  reviewer, or any external process. Present tense, reacting to what the last
+  command actually printed.
+- These are verbatim mid-block sentences from vanilla runs of K2-Horizon. Match
+  this shape:
+    "Wait - but there's a subtlety: is the issue only about this isinstance?"
+    "Hmm, but wait - should I also fix the pkg_resources import?"
+    "But careful: the task might have tests that check for specific behavior."
+    "What's more likely - the exported file, or the in-memory `kg_json`?"

@@ -1,0 +1,2 @@
+# The tests need docs/, README.md and fixtures from a checkout; they run from the repository.
+prune tests

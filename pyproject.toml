@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ifm-advisor"
+dynamic = ["version"]
+description = "A privileged advisor that reviews a coding agent's draft turns with hidden reference material and has the agent revise them, without that material entering the trajectory"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.11,<3",
+    "litellm>=1.95,<2",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4",
+    "pytest-asyncio>=1.2",
+    "ruff>=0.15",
+    "build>=1.2",
+    "twine>=6.1",
+    "jinja2>=3.1",
+    "mypy>=1.15",
+    "hypothesis>=6.130",
+    "pytest-cov>=6.0",
+]
+docs = [
+    "mkdocs-material>=9.6",
+    "pymdown-extensions>=10.14",
+]
+results = [
+    "matplotlib>=3.9",
+]
+
+[project.urls]
+Homepage = "https://github.com/ifm-ai/advisor"
+Repository = "https://github.com/ifm-ai/advisor"
+Issues = "https://github.com/ifm-ai/advisor/issues"
+
+[project.scripts]
+ifm-advisor = "ifm_advisor.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "ifm_advisor.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"ifm_advisor" = ["py.typed"]
+"ifm_advisor.prompts" = ["*.txt", "solver_profiles/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+asyncio_mode = "auto"
+addopts = ["-q", "--strict-markers", "--strict-config"]
+markers = ["network: downloads files from the internet"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["ifm_advisor"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src"]
