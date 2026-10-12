@@ -1,6 +1,6 @@
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/ifm-advisor-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/ifm-advisor-light.svg"><img src="assets/ifm-advisor-light.svg" alt="IFM | Advisor" width="700"></picture></p>
 
-<p align="center"><a href="#use-the-advisor"><img src="https://img.shields.io/badge/Docs-Getting_Started-2563EB?style=flat" alt="Docs: Getting Started"></a> <a href="https://ifm.ai/blog/k2/"><img src="https://img.shields.io/badge/Tech_Report-K2_Horizon-B31B1B?style=flat" alt="Tech Report: K2 Horizon"></a> <a href="https://github.com/ifm-ai"><img src="https://img.shields.io/badge/GitHub-IFM-181717?style=flat&amp;logo=github&amp;logoColor=white" alt="GitHub: IFM"></a> <a href="https://x.com/IFM_AI"><img src="https://img.shields.io/badge/X-IFM__AI-000000?style=flat&amp;logo=x&amp;logoColor=white" alt="X: @IFM_AI"></a> <a href="https://discord.gg/SZzAQ3kFJ"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=flat&amp;logo=discord&amp;logoColor=white" alt="Discord: Join the Community"></a></p>
+<p align="center"><a href="https://ifm-ai.github.io/advisor/"><img src="https://img.shields.io/badge/Docs-Website-2563EB?style=flat" alt="Docs: Website"></a> <a href="https://ifm.ai/blog/k2/"><img src="https://img.shields.io/badge/Tech_Report-K2_Horizon-B31B1B?style=flat" alt="Tech Report: K2 Horizon"></a> <a href="https://github.com/ifm-ai"><img src="https://img.shields.io/badge/GitHub-IFM-181717?style=flat&amp;logo=github&amp;logoColor=white" alt="GitHub: IFM"></a> <a href="https://x.com/IFM_AI"><img src="https://img.shields.io/badge/X-IFM__AI-000000?style=flat&amp;logo=x&amp;logoColor=white" alt="X: @IFM_AI"></a> <a href="https://discord.gg/SZzAQ3kFJ"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=flat&amp;logo=discord&amp;logoColor=white" alt="Discord: Join the Community"></a></p>
 
 # Advisor
 
@@ -171,23 +171,6 @@ the solver's sandbox (with Harbor, use `<trial>/advisor`, not `<trial>/agent/adv
 [summarize runs and report results](docs/how-to/summarize-and-report.md) and the
 [artifacts reference](docs/reference/artifacts.md).
 
-## Documentation
-
-- [Getting started](docs/tutorial/getting-started.md)
-- How-to: [your own agent loop](docs/how-to/custom-agent-loop.md) ·
-  [LiteLLM and Harbor](docs/how-to/litellm-and-harbor.md) ·
-  [reasoning prefill](docs/how-to/reasoning-prefill.md) ·
-  [task material](docs/how-to/task-material.md) · [audit](docs/how-to/audit.md) ·
-  [summarize and report](docs/how-to/summarize-and-report.md)
-- Explanation: [the method](docs/explanation/method.md) ·
-  [isolation](docs/explanation/isolation.md) · [writing cues](docs/explanation/writing-cues.md) ·
-  [design decisions](docs/explanation/design-decisions.md)
-- Reference: [configuration](docs/reference/configuration.md) ·
-  [decision schema](docs/reference/decision-schema.md) · [artifacts](docs/reference/artifacts.md) ·
-  [command line](docs/reference/cli.md) · [prompts](docs/reference/prompts.md)
-
-Serve the documentation site locally with `pip install -e ".[docs]" && mkdocs serve`.
-
 ## Development
 
 ```bash
@@ -196,6 +179,7 @@ pytest                            # -m "not network" skips the K2-Horizon templa
 ruff check . && ruff format --check src tests examples results scripts
 mypy                              # strict type check of src/
 python3 scripts/check_mermaid.py  # needs Node.js: renders every diagram in the docs
+mkdocs serve                      # preview the documentation site locally
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).

@@ -151,7 +151,7 @@ def test_the_readme_follows_the_house_layout():
         "## About IFM",
     ):
         assert heading in headings, heading
-    assert 'alt="IFM | Advisor"' in readme and 'href="#use-the-advisor"' in readme
+    assert 'alt="IFM | Advisor"' in readme and 'href="https://ifm-ai.github.io/advisor/"' in readme
     assert "private_trace.jsonl" in readme
 
 

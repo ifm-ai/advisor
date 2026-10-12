@@ -1,5 +1,6 @@
 site_name: Advisor
 site_description: A privileged advisor for agentic coding rollouts.
+site_url: https://ifm-ai.github.io/advisor/
 repo_url: https://github.com/ifm-ai/advisor
 repo_name: ifm-ai/advisor
 docs_dir: docs
