@@ -184,20 +184,6 @@ mkdocs serve                      # preview the documentation site locally
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Citation
-
-If you use Advisor, please cite it:
-
-```bibtex
-@misc{pimpalkhute2026advisor,
-  title        = {Advisor: A Privileged Advisor for Agentic Coding Rollouts},
-  author       = {Pimpalkhute, Varad and Sun, Yuekai and Yurochkin, Mikhail},
-  year         = {2026},
-  organization = {Institute of Foundation Models, MBZUAI},
-  howpublished = {\url{https://github.com/ifm-ai/advisor}},
-  note         = {Software}
-}
-```
 
 ## License
 
