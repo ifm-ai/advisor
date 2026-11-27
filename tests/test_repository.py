@@ -4,8 +4,6 @@ import re
 import tomllib
 from pathlib import Path
 
-import pytest
-
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOWS = sorted((ROOT / ".github" / "workflows").glob("*.yml"))
 USES = re.compile(r"^\s*(?:-\s*)?uses:\s*(\S+)(.*)$", re.M)
@@ -86,15 +84,10 @@ def test_there_is_a_security_policy():
     assert "Report a vulnerability" in policy and "private_trace.jsonl" in policy
 
 
-def test_the_citation_metadata_and_the_readme_name_the_same_authors():
-    yaml = pytest.importorskip("yaml")
-    citation = yaml.safe_load((ROOT / "CITATION.cff").read_text())
-    authors = [(author["given-names"], author["family-names"]) for author in citation["authors"]]
+def test_the_documentation_says_how_to_cite_the_project():
+    # CITATION.cff and the README's citation section were removed; the docs home page still has one
+    text = (ROOT / "docs" / "index.md").read_text()
 
-    assert citation["cff-version"] == "1.2.0"
-    assert authors == [("Varad", "Pimpalkhute"), ("Yuekai", "Sun"), ("Mikhail", "Yurochkin")]
-    for page in (ROOT / "README.md", ROOT / "docs" / "index.md"):
-        text = page.read_text()
-        assert "## Citation" in text, page.name
-        assert "author       = {Pimpalkhute, Varad and Sun, Yuekai and Yurochkin, Mikhail}" in text
-        assert citation["title"] in text, page.name
+    assert "## Citation" in text
+    assert "author       = {Pimpalkhute, Varad and Sun, Yuekai and Yurochkin, Mikhail}" in text
+    assert "title        = {Advisor: A Privileged Advisor for Agentic Coding Rollouts}" in text
